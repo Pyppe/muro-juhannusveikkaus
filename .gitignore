@@ -2,6 +2,9 @@ logs
 project/project
 project/target
 target
+/bin
+.target
+.cache
 tmp
 .history
 dist
