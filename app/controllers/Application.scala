@@ -1,6 +1,7 @@
 package controllers
 
 import play.api._
+import play.api.cache.Cached
 import play.api.mvc._
 import services.ForumParser
 
@@ -10,17 +11,21 @@ import org.json4s.jackson.JsonMethods.compact
 
 object Application extends Controller {
 
+  import play.api.Play.current
+
   private implicit val jsonFormats: Formats = new DefaultFormats {
     override def dateFormatter = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mmZ")
   } + DateTimeSerializer
   
   def index = Action {
-    Ok(views.html.index("Your new application is ready."))
+    Ok(views.html.index())
   }
 
-  def guesses = Action {
-    time("Find guesses") {
-      Ok(toJSON(ForumParser.findGuesses)).as("application/json")
+  def guesses = Cached("guesses", 60*5) {
+    Action {
+      time("Find guesses") {
+        Ok(toJSON(ForumParser.findGuesses)).as("application/json")
+      }
     }
   }
 

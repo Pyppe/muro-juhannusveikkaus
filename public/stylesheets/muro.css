@@ -1,0 +1,25 @@
+/* line 3, ../sass/muro.scss */
+#content {
+  width: 920px;
+  margin: 0 auto;
+}
+/* line 9, ../sass/muro.scss */
+#content table .table-sort, #content table .table-sort-down, #content table .table-sort-up {
+  cursor: pointer;
+}
+/* line 11, ../sass/muro.scss */
+#content table .table-sort > i, #content table .table-sort-down > i, #content table .table-sort-up > i {
+  font-family: 'FontAwesome';
+}
+/* line 15, ../sass/muro.scss */
+#content table .table-sort > i:before {
+  content: "\f0dc";
+}
+/* line 18, ../sass/muro.scss */
+#content table .table-sort-down > i:before {
+  content: "\f0dd";
+}
+/* line 21, ../sass/muro.scss */
+#content table .table-sort-up > i:before {
+  content: "\f0de";
+}

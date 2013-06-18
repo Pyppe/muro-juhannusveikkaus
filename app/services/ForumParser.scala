@@ -1,7 +1,8 @@
 package services
 
 import org.jsoup.Jsoup
-import org.joda.time.{DateMidnight, DateTime, Period, PeriodType}
+import org.joda.time._
+import org.joda.time.format.{PeriodFormatterBuilder, DateTimeFormat}
 
 import play.api.libs.ws._
 
@@ -9,8 +10,9 @@ import scala.concurrent.Await
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.collection.JavaConversions._
 import scala.concurrent.duration._
-import org.joda.time.format.{PeriodFormatterBuilder, DateTimeFormat}
 import play.api.Logger
+import play.api.libs.ws.Response
+import scala.Some
 
 case class Page(nextPage: Option[String], posts: Seq[Post])
 case class Post(time: DateTime, user: String, url: String, guess: Guess)
@@ -21,9 +23,12 @@ case class LateGuess(user: String, url: String, delay: String)
 
 
 object ForumParser {
-  
+
+  val timezone = DateTimeZone.forID("Europe/Helsinki")
+
+  val timezoneId = "Europe/Helsinki"
   private val forumUrl = "http://murobbs.plaza.fi/yleista-keskustelua/1014346-juhannusveikkaus-2013-a.html"
-  private val dtf = DateTimeFormat.forPattern("dd.MM.yy, HH:mm")
+  private val dtf = DateTimeFormat.forPattern("dd.MM.yy, HH:mm").withZone(timezone)
   private val Yesterday = """Eilen, (\d\d):(\d\d)""".r
   private val Today = """Tänään, (\d\d):(\d\d)""".r
 

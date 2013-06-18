@@ -1,7 +1,44 @@
-@(message: String)
+<!DOCTYPE html>
+<html ng-app="muroApp">
+  <head>
+    <title>murobbs juhannusveikkaus</title>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/lib/normalize.css")" />
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/lib/foundation.min.css")" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/muro.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    <script src="//code.jquery.com/jquery-1.10.1.min.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/lib/moment.min.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/lib/moment.fi.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/muro.js" type="text/javascript"></script>
 
-@main("Welcome to Play 2.1") {
-    
-    @play20.welcome(message)
-    
-}
+  </head>
+    <body>
+      <div id="content">
+        <h1>MuroBBS Juhannusveikkaus 2013</h1>
+        <div class="row" ng-controller="GuessCtrl">
+          <table style="width: 100%;">
+            <thead>
+              <tr>
+                <th ng-class="selectedClass('user')" ng-click="changeSorting('user')">Käyttäjä <i></i></th>
+                <th ng-class="selectedClass('time')" ng-click="changeSorting('time')">Arvaushetki <i></i></th>
+                <th>M</th>
+                <th>V</th>
+                <th>T</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="guess in guesses | orderBy:sort.column:sort.reverse">
+                <td><a href="{{guess.url}}" target="_blank">{{guess.user}}</a></td>
+                <td><span formatted-time="guess.time"></span></td>
+                <td>{{guess.guess.land}}</td>
+                <td>{{guess.guess.water}}</td>
+                <td>{{guess.guess.road}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </body>
+</html>

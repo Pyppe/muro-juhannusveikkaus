@@ -1,0 +1,27 @@
+@import "compass";
+
+#content {
+  width: 920px;
+  margin: 0 auto;
+
+  table {
+
+    .table-sort, .table-sort-down, .table-sort-up {
+      cursor: pointer;
+      > i {
+        font-family: 'FontAwesome';
+      }
+    }
+    .table-sort > i:before {
+      content: "\f0dc";
+    }
+    .table-sort-down > i:before {
+      content: "\f0dd";
+    }
+    .table-sort-up > i:before {
+      content: "\f0de";
+    }
+
+  }
+}
+
