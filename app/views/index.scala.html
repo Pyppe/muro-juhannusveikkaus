@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html ng-app="muroApp">
   <head>
-    <title>murobbs juhannusveikkaus</title>
+    <title>MuroBBS Juhannusveikkaus 2013</title>
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/lib/normalize.css")" />
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/lib/foundation.min.css")" />
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/muro.css")">
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-    <script src="//code.jquery.com/jquery-1.10.1.min.js" type="text/javascript"></script>
+
+    @if(play.api.Play.current.mode == play.api.Mode.Dev) {
+      <script src="/assets/javascripts/lib/jquery.js" type="text/javascript"></script>
+      <script src="/assets/javascripts/lib/angular.js" type="text/javascript"></script>
+    } else {
+      <script src="//code.jquery.com/jquery-1.10.1.min.js" type="text/javascript"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js" type="text/javascript"></script>
+    }
+
+    <script src="/assets/javascripts/lib/custom.modernizr.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/lib/foundation.js" type="text/javascript"></script>
+    <script src="/assets/javascripts/lib/foundation.tooltips.js" type="text/javascript"></script>
+
     <script src="/assets/javascripts/lib/moment.min.js" type="text/javascript"></script>
     <script src="/assets/javascripts/lib/moment.fi.js" type="text/javascript"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js" type="text/javascript"></script>
+
     <script src="/assets/javascripts/muro.js" type="text/javascript"></script>
 
   </head>
@@ -22,22 +34,48 @@
             <thead>
               <tr>
                 <th ng-class="selectedClass('user')" ng-click="changeSorting('user')">Käyttäjä <i></i></th>
-                <th ng-class="selectedClass('time')" ng-click="changeSorting('time')">Arvaushetki <i></i></th>
-                <th>M</th>
-                <th>V</th>
-                <th>T</th>
+                <th ng-class="selectedClass('count')" ng-click="changeSorting('count')">Veikkauksia yht. <i></i></th>
+                <th ng-class="selectedClass('guess.land')" ng-click="changeSorting('guess.land')">Maa <i></i></th>
+                <th ng-class="selectedClass('guess.road')" ng-click="changeSorting('guess.road')">Tie <i></i></th>
+                <th ng-class="selectedClass('guess.water')" ng-click="changeSorting('guess.water')">Vesi <i></i></th>
+                <th ng-class="selectedClass('time')" ng-click="changeSorting('time')">Veikkausaika <i></i></th>
               </tr>
             </thead>
             <tbody>
               <tr ng-repeat="guess in guesses | orderBy:sort.column:sort.reverse">
-                <td><a href="{{guess.url}}" target="_blank">{{guess.user}}</a></td>
-                <td><span formatted-time="guess.time"></span></td>
+                <td>
+                  <a href="{{guess.url}}" target="_blank">{{guess.user}}</a>
+                  <span ng-show="guess.later.length > 0" data-tooltip class="label"
+                        title="Myöhemmät arvaukset: TODO"
+                        ng-pluralize count="guess.later.length" when="{1: '1 myöhempi veikkaus', other:'{} myöhempää veikkausta'}">
+                   </span>
+                </td>
+                <td>{{guess.count}}</td>
                 <td>{{guess.guess.land}}</td>
-                <td>{{guess.guess.water}}</td>
                 <td>{{guess.guess.road}}</td>
+                <td>{{guess.guess.water}}</td>
+                <td><span formatted-time="guess.time"></span></td>
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+      <div id="copyright">
+        <div class="row full-width">
+          <!--
+          <div>Site content &copy; Pyppe</div>
+          <div>Powered by <a class="label" href="#">Play!</a> <a class="label" href="#">Scala</a></div>
+          <div><a href="https://github.com/Pyppe/muro-juhannusveikkaus">Code at Github</a></div>
+          -->
+          <div class="large-3 columns">Pyppe productions. trolololoo</div>
+          <div class="large-6 columns center">
+            Powered by
+            <a class="label" href="http://www.playframework.com/">Play!</a>
+            <a class="label" href="http://foundation.zurb.com/">Foundation</a>
+            <a class="label" href="http://angularjs.org/">AngularJS</a>
+            <a class="label" href="http://www.heroku.com/">Heroku</a>
+          </div>
+          <div class="large-3 columns right"><a href="https://github.com/Pyppe/muro-juhannusveikkaus">Code at Github</a></div>
         </div>
       </div>
     </body>

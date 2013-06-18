@@ -1,7 +1,7 @@
 @import "compass";
 
 #content {
-  width: 920px;
+  width: 62.5em;
   margin: 0 auto;
 
   table {
@@ -9,9 +9,20 @@
     .table-sort, .table-sort-down, .table-sort-up {
       cursor: pointer;
       > i {
+        font-style: normal;
         font-family: 'FontAwesome';
       }
     }
+
+    .table-sort {
+      > i {
+        opacity: 0;
+      }
+      &:hover > i {
+        opacity: 1;
+      }
+    }
+
     .table-sort > i:before {
       content: "\f0dc";
     }
@@ -25,3 +36,35 @@
   }
 }
 
+#copyright {
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  background-color: #111;
+  color: white;
+
+  .center {
+    text-align: center;
+  }
+  .right {
+    text-align: right;
+  }
+
+  a.label {
+    &:hover, &:focus {
+      color: inherit;
+    }
+  }
+
+  /*
+  .row {
+    margin: 0 auto;
+
+    > div {
+      float: left;
+      margin-right: 50px;
+    }
+  }
+  */
+
+}

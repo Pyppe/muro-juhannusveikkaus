@@ -2,7 +2,7 @@
 
 'use strict';
 
-
+$(document).foundation('tooltips');
 var muroApp = angular.module('muroApp', []);
 
 muroApp.directive('formattedTime', function() {
@@ -10,7 +10,7 @@ muroApp.directive('formattedTime', function() {
     scope: {
       formattedTime: "="
     },
-    template: '<span title="{{formatted}}">{{ago}}</span>',
+    template: '<span title="{{formatted}}" data-tooltip>{{ago}}</span>',
     link: function (scope, el, attrs) {
       var timeStr = scope.formattedTime
       var t = makeTime(timeStr);
@@ -22,11 +22,21 @@ muroApp.directive('formattedTime', function() {
   };
 });
 
+$(function() {
+  //$('body')
+
+});
+
 muroApp.controller("GuessCtrl", function($scope, $http) {
 
   $http({method: 'GET', url: '/guesses'}).
       success(function(guesses) {
-        $scope.guesses = guesses;
+        $scope.guesses = $.map(guesses, function (guess) {
+          console.log(guess.later);
+          guess.count = guess.later.length + 1;
+          console.log(guess.count);
+          return guess;
+        });
       }).
       error(function(data, status, headers, config) {
         alert ('OMG. VIRHE!');
@@ -52,7 +62,7 @@ muroApp.controller("GuessCtrl", function($scope, $http) {
       sort.reverse = !sort.reverse;
     } else {
       sort.column = column;
-      sort.reverse = (column === 'time') ? true : false;
+      sort.reverse = (column === 'user') ? false : true;
     }
   };
 
@@ -67,17 +77,3 @@ function makeTime(time) {
     time: time
   };
 }
-
-
-
-
-
-
-
-/*.
-    config(['$routeProvider', function($routeProvider) {
-      $routeProvider.
-          when('/phones', {templateUrl: 'partials/phone-list.html',   controller: PhoneListCtrl}).
-          when('/phones/:phoneId', {templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl}).
-          otherwise({redirectTo: '/phones'});
-    }]);*/

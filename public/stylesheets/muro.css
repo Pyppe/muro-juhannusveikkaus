@@ -1,6 +1,6 @@
 /* line 3, ../sass/muro.scss */
 #content {
-  width: 920px;
+  width: 62.5em;
   margin: 0 auto;
 }
 /* line 9, ../sass/muro.scss */
@@ -9,17 +9,57 @@
 }
 /* line 11, ../sass/muro.scss */
 #content table .table-sort > i, #content table .table-sort-down > i, #content table .table-sort-up > i {
+  font-style: normal;
   font-family: 'FontAwesome';
 }
-/* line 15, ../sass/muro.scss */
+/* line 18, ../sass/muro.scss */
+#content table .table-sort > i {
+  opacity: 0;
+}
+/* line 21, ../sass/muro.scss */
+#content table .table-sort:hover > i {
+  opacity: 1;
+}
+/* line 26, ../sass/muro.scss */
 #content table .table-sort > i:before {
   content: "\f0dc";
 }
-/* line 18, ../sass/muro.scss */
+/* line 29, ../sass/muro.scss */
 #content table .table-sort-down > i:before {
   content: "\f0dd";
 }
-/* line 21, ../sass/muro.scss */
+/* line 32, ../sass/muro.scss */
 #content table .table-sort-up > i:before {
   content: "\f0de";
+}
+
+/* line 39, ../sass/muro.scss */
+#copyright {
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  background-color: #111;
+  color: white;
+  /*
+  .row {
+    margin: 0 auto;
+
+    > div {
+      float: left;
+      margin-right: 50px;
+    }
+  }
+  */
+}
+/* line 46, ../sass/muro.scss */
+#copyright .center {
+  text-align: center;
+}
+/* line 49, ../sass/muro.scss */
+#copyright .right {
+  text-align: right;
+}
+/* line 54, ../sass/muro.scss */
+#copyright a.label:hover, #copyright a.label:focus {
+  color: inherit;
 }
