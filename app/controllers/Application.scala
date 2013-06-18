@@ -1,9 +1,9 @@
 package controllers
 
 import play.api._
-import play.api.cache.Cached
 import play.api.mvc._
 import services.ForumParser
+import play.api.cache.Cache
 
 import org.json4s.{CustomSerializer, DefaultFormats, Formats, Extraction}
 import org.json4s.ext.DateTimeSerializer
@@ -21,12 +21,12 @@ object Application extends Controller {
     Ok(views.html.index())
   }
 
-  def guesses = Cached("guesses", 60*5) {
-    Action {
-      time("Find guesses") {
-        Ok(toJSON(ForumParser.findGuesses)).as("application/json")
-      }
+  def guesses = Action {
+    val guesses = Cache.getOrElse("guesses", 60*5) {
+      time("Find guesses")(ForumParser.findGuesses)
     }
+
+    Ok(toJSON(guesses)).as("application/json")
   }
 
   private def toJSON(obj: Any) = compact(Extraction.decompose(obj))
