@@ -30,90 +30,100 @@
     <body>
       <div id="content" ng-controller="GuessCtrl">
         <h1>MuroBBS Juhannusveikkaus 2013</h1>
+        <h5 class="subheader">
+          Idea
+          <i class="icon-quote-left"></i>
+          <em>
+            <a href="http://murobbs.plaza.fi/ohjelmointi/1017334-koodaa-juhannusveikkausten-keraaja.html">
+              Koodaa Juhannusveikkausten kerääjä
+            </a>
+          </em>
+          <i class="icon-quote-right"></i>
+        </h5>
 
-          <div ng-show="viewReady">
+        <div ng-show="viewReady">
 
-            <div class="row">
-              <div class="small-6">
-                <form class="custom">
-                  <fieldset>
-                    <legend>Syötä tulokset</legend>
+          <div class="row">
+            <div class="small-6">
+              <form class="custom">
+                <fieldset>
+                  <legend>Syötä tulokset</legend>
 
-                    <div class="row collapse">
+                  <div class="row collapse">
 
-                      <div class="small-1 columns">&nbsp;</div>
+                    <div class="small-1 columns">&nbsp;</div>
 
-                      <div class="small-2 columns">
-                        <span class="prefix">Maa</span>
-                      </div>
-                      <div class="small-1 columns">
-                        <input type="text" ng-model="correctLand" />
-                      </div>
-
-                      <div class="small-1 columns">&nbsp;</div>
-
-                      <div class="small-2 columns">
-                        <span class="prefix">Tie</span>
-                      </div>
-                      <div class="small-1 columns">
-                        <input type="text" ng-model="correctRoad" />
-                      </div>
-
-                      <div class="small-1 columns">&nbsp;</div>
-
-                      <div class="small-2 columns">
-                        <span class="prefix">Vesi</span>
-                      </div>
-                      <div class="small-1 columns">
-                        <input type="text" ng-model="correctWater" />
-                      </div>
-
+                    <div class="small-2 columns">
+                      <span class="prefix">Maa</span>
+                    </div>
+                    <div class="small-1 columns">
+                      <input type="text" ng-model="correctLand" />
                     </div>
 
-                  </fieldset>
-                </form>
-              </div>
-              <div class="small-6">&nbsp;</div>
-            </div>
+                    <div class="small-1 columns">&nbsp;</div>
 
+                    <div class="small-2 columns">
+                      <span class="prefix">Tie</span>
+                    </div>
+                    <div class="small-1 columns">
+                      <input type="text" ng-model="correctRoad" />
+                    </div>
 
-            <div class="row">
-              <table style="width: 100%;">
-                <thead>
-                <tr>
-                  <th ng-class="selectedClass('user')" ng-click="changeSorting('user')">Käyttäjä <i></i></th>
-                  <th ng-class="selectedClass('count')" ng-click="changeSorting('count')">Veikkaajia <i></i></th>
-                  <th ng-class="selectedClass('guess.land')" ng-click="changeSorting('guess.land')">Maa <i></i></th>
-                  <th ng-class="selectedClass('guess.road')" ng-click="changeSorting('guess.road')">Tie <i></i></th>
-                  <th ng-class="selectedClass('guess.water')" ng-click="changeSorting('guess.water')">Vesi <i></i></th>
-                  <th ng-class="selectedClass('time')" ng-click="changeSorting('time')">Veikkausaika <i></i></th>
-                  <th ng-class="selectedClass('diff()')" ng-click="changeSorting('diff()')">Tulos <small>(pienempi parempi)</small> <i></i></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="guess in guesses | orderBy:sort.column:sort.reverse">
-                  <td>
-                    <a href="{{guess.url}}" target="_blank">{{guess.user}}</a>
-                  <span ng-show="guess.later.length > 0" data-tooltip class="label"
-                        title="<b>Myöhemmin samaa veikkasivat:</b><br />{{guess.laterTooltip}}"
-                        ng-pluralize count="guess.later.length" when="{1: '1 myöhempi veikkaus', other:'{} myöhempää veikkausta'}">
-                   </span>
-                  </td>
-                  <td>{{guess.count}}</td>
-                  <td>{{guess.guess.land}}</td>
-                  <td>{{guess.guess.road}}</td>
-                  <td>{{guess.guess.water}}</td>
-                  <td><span formatted-time="guess.time"></span></td>
-                  <td>{{guess.diff()}}</td>
-                </tr>
-                </tbody>
-              </table>
+                    <div class="small-1 columns">&nbsp;</div>
+
+                    <div class="small-2 columns">
+                      <span class="prefix">Vesi</span>
+                    </div>
+                    <div class="small-1 columns">
+                      <input type="text" ng-model="correctWater" />
+                    </div>
+
+                  </div>
+
+                </fieldset>
+              </form>
             </div>
+            <div class="small-6">&nbsp;</div>
           </div>
-          <div id="loading" ng-show="!viewReady">
-            <i class="icon-spinner icon-spin icon-large"></i> Ladataan tietoja...
+
+
+          <div class="row">
+            <table style="width: 100%;">
+              <thead>
+              <tr>
+                <th ng-class="selectedClass('user')" ng-click="changeSorting('user')">Käyttäjä <i></i></th>
+                <th ng-class="selectedClass('count')" ng-click="changeSorting('count')">Veikkaajia <i></i></th>
+                <th ng-class="selectedClass('guess.land')" ng-click="changeSorting('guess.land')">Maa <i></i></th>
+                <th ng-class="selectedClass('guess.road')" ng-click="changeSorting('guess.road')">Tie <i></i></th>
+                <th ng-class="selectedClass('guess.water')" ng-click="changeSorting('guess.water')">Vesi <i></i></th>
+                <th ng-class="selectedClass('time')" ng-click="changeSorting('time')">Veikkausaika <i></i></th>
+                <th ng-class="selectedClass('diff()')" ng-click="changeSorting('diff()')">Tulos <small>(pienempi parempi)</small> <i></i></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="guess in guesses | orderBy:sort.column:sort.reverse">
+                <td>
+                  <a href="{{guess.url}}" target="_blank">{{guess.user}}</a>
+                <span ng-show="guess.later.length > 0" data-tooltip class="label"
+                      title="<b>Myöhemmin samaa veikkasivat:</b><br />{{guess.laterTooltip}}"
+                      ng-pluralize count="guess.later.length" when="{1: '1 myöhempi veikkaus', other:'{} myöhempää veikkausta'}">
+                 </span>
+                </td>
+                <td>{{guess.count}}</td>
+                <td>{{guess.guess.land}}</td>
+                <td>{{guess.guess.road}}</td>
+                <td>{{guess.guess.water}}</td>
+                <td><span formatted-time="guess.time"></span></td>
+                <td>{{guess.diff()}}</td>
+              </tr>
+              </tbody>
+            </table>
           </div>
         </div>
+        <div id="loading" ng-show="!viewReady">
+          <i class="icon-spinner icon-spin icon-large"></i> Ladataan tietoja...
+        </div>
+      </div>
 
       </div>
       <div id="copyright">
