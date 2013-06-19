@@ -89,11 +89,13 @@ object ForumParser {
 
   private def parseGuess(message: String): Option[Guess] = {
     def findMatch(key: String) =
-      """%s *= *(\d+)""".format(key).r.findFirstMatchIn(message).map(_.group(1)).toSeq
+      """%s[a-zäö]* *[-=:]? *(\d+)""".format(key).r.findFirstMatchIn(message).map(_.group(1)).toSeq
 
     findMatch("[mM]") ++ findMatch("[tT]") ++ findMatch("[vV]") match {
       case seq: Seq[String] if seq.size == 3 => Some(Guess(seq(0).toInt, seq(1).toInt, seq(2).toInt))
-      case _ => None
+      case _ =>
+        Logger.warn(s"Could not determine guess from $message")
+        None
     }
   }
 
