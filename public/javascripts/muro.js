@@ -22,21 +22,33 @@ muroApp.directive('formattedTime', function() {
   };
 });
 
-$(function() {
-  //$('body')
-
-});
-
 muroApp.controller("GuessCtrl", function($scope, $http) {
 
-  $http({method: 'GET', url: '/guesses'}).
+  var url = "/guesses";
+  //var url = '/assets/mock/guesses.json';
+
+
+  $http({method: 'GET', url: url}).
       success(function(guesses) {
         $scope.guesses = $.map(guesses, function (guess) {
-          console.log(guess.later);
           guess.count = guess.later.length + 1;
-          console.log(guess.count);
+          guess.diff = function() {
+            var correctLand = parseInt($scope.correctLand);
+            var correctRoad = parseInt($scope.correctRoad);
+            var correctWater = parseInt($scope.correctWater);
+            if (correctLand >= 0 && correctRoad >= 0 && correctWater >= 0) {
+              return Math.abs(correctLand - guess.guess.land) +
+                  Math.abs(correctRoad - guess.guess.road) +
+                  Math.abs(correctWater - guess.guess.water);
+            }
+            return "";
+          };
+          guess.laterTooltip = $.map(guess.later, function(el) {
+            return '<div>' + el.user + ' <small>(' + el.delay + ' myöhemmin)</small></div>';
+          }).join('');
           return guess;
         });
+        $scope.viewReady = true;
       }).
       error(function(data, status, headers, config) {
         alert ('OMG. VIRHE!');
@@ -62,7 +74,7 @@ muroApp.controller("GuessCtrl", function($scope, $http) {
       sort.reverse = !sort.reverse;
     } else {
       sort.column = column;
-      sort.reverse = (column === 'user') ? false : true;
+      sort.reverse = (column === 'user' || column === 'diff()') ? false : true;
     }
   };
 

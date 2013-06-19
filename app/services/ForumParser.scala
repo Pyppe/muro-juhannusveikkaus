@@ -24,21 +24,17 @@ case class LateGuess(user: String, url: String, delay: String)
 
 object ForumParser {
 
-  val timezone = DateTimeZone.forID("Europe/Helsinki")
-
-  val timezoneId = "Europe/Helsinki"
   private val forumUrl = "http://murobbs.plaza.fi/yleista-keskustelua/1014346-juhannusveikkaus-2013-a.html"
-  private val dtf = DateTimeFormat.forPattern("dd.MM.yy, HH:mm").withZone(timezone)
+  private val dtf = DateTimeFormat.forPattern("dd.MM.yy, HH:mm").withZone(DateTimeZone.forID("Europe/Helsinki"))
   private val Yesterday = """Eilen, (\d\d):(\d\d)""".r
   private val Today = """Tänään, (\d\d):(\d\d)""".r
 
-  private val hmsFormatter = new PeriodFormatterBuilder()
+  private val durationFormatter = new PeriodFormatterBuilder()
+    .appendDays().appendSuffix("pv")
+    .appendSeparator(" ")
     .appendHours().appendSuffix("t")
     .appendSeparator(" ")
     .appendMinutes().appendSuffix("min")
-    .appendSeparator(" ")
-    .printZeroAlways()
-    .appendSeconds().appendSuffix("s")
     .toFormatter
     
   def findPosts() = findPostsFromUrl(forumUrl, Seq.empty)
@@ -101,9 +97,9 @@ object ForumParser {
     }
   }
 
-  def millisToHms(millis: Long): String =
-    hmsFormatter.print(new Period(0L, millis, PeriodType.time()))
+  def humanizeMillis(millis: Long): String =
+    durationFormatter.print(new Period(0L, millis, PeriodType.dayTime))
 
-  def duration(d1: DateTime, d2: DateTime) = millisToHms(math.abs(d1.getMillis - d2.getMillis))
+  def duration(d1: DateTime, d2: DateTime) = humanizeMillis(math.abs(d1.getMillis - d2.getMillis))
 
 }

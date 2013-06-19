@@ -40,16 +40,6 @@
   bottom: 0;
   background-color: #111;
   color: white;
-  /*
-  .row {
-    margin: 0 auto;
-
-    > div {
-      float: left;
-      margin-right: 50px;
-    }
-  }
-  */
 }
 /* line 46, ../sass/muro.scss */
 #copyright .center {
@@ -62,4 +52,11 @@
 /* line 54, ../sass/muro.scss */
 #copyright a.label:hover, #copyright a.label:focus {
   color: inherit;
+}
+
+/* line 60, ../sass/muro.scss */
+#loading {
+  width: 400px;
+  margin: 30px auto;
+  font-size: 32px;
 }

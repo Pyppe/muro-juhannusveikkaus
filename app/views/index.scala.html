@@ -27,46 +27,96 @@
 
   </head>
     <body>
-      <div id="content">
+      <div id="content" ng-controller="GuessCtrl">
         <h1>MuroBBS Juhannusveikkaus 2013</h1>
-        <div class="row" ng-controller="GuessCtrl">
-          <table style="width: 100%;">
-            <thead>
-              <tr>
-                <th ng-class="selectedClass('user')" ng-click="changeSorting('user')">Käyttäjä <i></i></th>
-                <th ng-class="selectedClass('count')" ng-click="changeSorting('count')">Veikkauksia yht. <i></i></th>
-                <th ng-class="selectedClass('guess.land')" ng-click="changeSorting('guess.land')">Maa <i></i></th>
-                <th ng-class="selectedClass('guess.road')" ng-click="changeSorting('guess.road')">Tie <i></i></th>
-                <th ng-class="selectedClass('guess.water')" ng-click="changeSorting('guess.water')">Vesi <i></i></th>
-                <th ng-class="selectedClass('time')" ng-click="changeSorting('time')">Veikkausaika <i></i></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="guess in guesses | orderBy:sort.column:sort.reverse">
-                <td>
-                  <a href="{{guess.url}}" target="_blank">{{guess.user}}</a>
+
+          <div ng-show="viewReady">
+
+            <div class="row">
+              <div class="small-6">
+                <form class="custom">
+                  <fieldset>
+                    <legend>Syötä tulokset</legend>
+
+                    <div class="row collapse">
+
+                      <div class="small-1 columns">&nbsp;</div>
+
+                      <div class="small-2 columns">
+                        <span class="prefix">Maa</span>
+                      </div>
+                      <div class="small-1 columns">
+                        <input type="text" ng-model="correctLand" />
+                      </div>
+
+                      <div class="small-1 columns">&nbsp;</div>
+
+                      <div class="small-2 columns">
+                        <span class="prefix">Tie</span>
+                      </div>
+                      <div class="small-1 columns">
+                        <input type="text" ng-model="correctRoad" />
+                      </div>
+
+                      <div class="small-1 columns">&nbsp;</div>
+
+                      <div class="small-2 columns">
+                        <span class="prefix">Vesi</span>
+                      </div>
+                      <div class="small-1 columns">
+                        <input type="text" ng-model="correctWater" />
+                      </div>
+
+                    </div>
+
+                  </fieldset>
+                </form>
+              </div>
+              <div class="small-6">&nbsp;</div>
+            </div>
+
+
+            <div class="row">
+              <table style="width: 100%;">
+                <thead>
+                <tr>
+                  <th ng-class="selectedClass('user')" ng-click="changeSorting('user')">Käyttäjä <i></i></th>
+                  <th ng-class="selectedClass('count')" ng-click="changeSorting('count')">Veikkaajia <i></i></th>
+                  <th ng-class="selectedClass('guess.land')" ng-click="changeSorting('guess.land')">Maa <i></i></th>
+                  <th ng-class="selectedClass('guess.road')" ng-click="changeSorting('guess.road')">Tie <i></i></th>
+                  <th ng-class="selectedClass('guess.water')" ng-click="changeSorting('guess.water')">Vesi <i></i></th>
+                  <th ng-class="selectedClass('time')" ng-click="changeSorting('time')">Veikkausaika <i></i></th>
+                  <th ng-class="selectedClass('diff()')" ng-click="changeSorting('diff()')">Tulos <small>(pienempi parempi)</small> <i></i></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="guess in guesses | orderBy:sort.column:sort.reverse">
+                  <td>
+                    <a href="{{guess.url}}" target="_blank">{{guess.user}}</a>
                   <span ng-show="guess.later.length > 0" data-tooltip class="label"
-                        title="Myöhemmät arvaukset: TODO"
+                        title="<b>Myöhemmin samaa veikkasivat:</b><br />{{guess.laterTooltip}}"
                         ng-pluralize count="guess.later.length" when="{1: '1 myöhempi veikkaus', other:'{} myöhempää veikkausta'}">
                    </span>
-                </td>
-                <td>{{guess.count}}</td>
-                <td>{{guess.guess.land}}</td>
-                <td>{{guess.guess.road}}</td>
-                <td>{{guess.guess.water}}</td>
-                <td><span formatted-time="guess.time"></span></td>
-              </tr>
-            </tbody>
-          </table>
+                  </td>
+                  <td>{{guess.count}}</td>
+                  <td>{{guess.guess.land}}</td>
+                  <td>{{guess.guess.road}}</td>
+                  <td>{{guess.guess.water}}</td>
+                  <td><span formatted-time="guess.time"></span></td>
+                  <td>{{guess.diff()}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div id="loading" ng-show="!viewReady">
+            <i class="icon-spinner icon-spin icon-large"></i> Ladataan tietoja...
+          </div>
         </div>
+
       </div>
       <div id="copyright">
         <div class="row full-width">
-          <!--
-          <div>Site content &copy; Pyppe</div>
-          <div>Powered by <a class="label" href="#">Play!</a> <a class="label" href="#">Scala</a></div>
-          <div><a href="https://github.com/Pyppe/muro-juhannusveikkaus">Code at Github</a></div>
-          -->
           <div class="large-3 columns">Pyppe productions. trolololoo</div>
           <div class="large-6 columns center">
             Powered by
