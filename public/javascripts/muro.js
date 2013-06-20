@@ -4,6 +4,7 @@
 
 $(document).foundation('tooltips');
 var muroApp = angular.module('muroApp', []);
+var undefined;
 
 muroApp.directive('formattedTime', function() {
   return {
@@ -47,15 +48,13 @@ muroApp.controller("GuessCtrl", function($scope, $http) {
         $scope.guesses = $.map(guesses, function (guess) {
           guess.count = guess.later.length + 1;
           guess.diff = function() {
-            var correctLand = parseInt($scope.correctLand);
-            var correctRoad = parseInt($scope.correctRoad);
-            var correctWater = parseInt($scope.correctWater);
-            if (correctLand >= 0 && correctRoad >= 0 && correctWater >= 0) {
-              return Math.abs(correctLand - guess.guess.land) +
-                  Math.abs(correctRoad - guess.guess.road) +
-                  Math.abs(correctWater - guess.guess.water);
+            var correct = getCorrectGuess();
+            if (correct) {
+              return Math.abs(correct[0] - guess.guess.land) +
+                     Math.abs(correct[1] - guess.guess.road) +
+                     Math.abs(correct[2] - guess.guess.water);
             }
-            return "";
+            return '';
           };
           guess.laterTooltip = $.map(guess.later, function(el) {
             return '<div>' + el.user + ' <small>(' + el.delay + ' myöhemmin)</small></div>';
@@ -73,6 +72,29 @@ muroApp.controller("GuessCtrl", function($scope, $http) {
     column: 'time',
     reverse: true
   };
+
+  $scope.changeUrl = function () {
+    if (history && $.isFunction(history.replaceState)) {
+      var correct = getCorrectGuess();
+      if (correct) {
+        try {
+          history.replaceState({}, '', '/?' + correct[0] + '-' + correct[1] + '-' + correct[2]);
+        } catch (e) {
+          // just to be safe...
+        }
+      }
+    }
+  };
+
+  function getCorrectGuess() {
+    var correctLand = parseInt($scope.correctLand);
+    var correctRoad = parseInt($scope.correctRoad);
+    var correctWater = parseInt($scope.correctWater);
+    if (correctLand >= 0 && correctRoad >= 0 && correctWater >= 0) {
+      return [correctLand, correctRoad, correctWater];
+    }
+    return undefined;
+  }
 
   initGuess();
 
