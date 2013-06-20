@@ -53,8 +53,13 @@ h5 {
 #total b {
   font-size: 150%;
 }
+/* line 54, ../sass/muro.scss */
+#total label {
+  display: inline;
+  padding-left: 20px;
+}
 
-/* line 55, ../sass/muro.scss */
+/* line 60, ../sass/muro.scss */
 #copyright {
   padding: 20px;
   position: relative;
@@ -62,20 +67,20 @@ h5 {
   background-color: #111;
   color: white;
 }
-/* line 62, ../sass/muro.scss */
+/* line 67, ../sass/muro.scss */
 #copyright .center {
   text-align: center;
 }
-/* line 65, ../sass/muro.scss */
+/* line 70, ../sass/muro.scss */
 #copyright .right {
   text-align: right;
 }
-/* line 70, ../sass/muro.scss */
+/* line 75, ../sass/muro.scss */
 #copyright a.label:hover, #copyright a.label:focus {
   color: inherit;
 }
 
-/* line 76, ../sass/muro.scss */
+/* line 81, ../sass/muro.scss */
 #loading {
   width: 400px;
   margin: 30px auto;

@@ -18,7 +18,7 @@ case class Page(nextPage: Option[String], posts: Seq[Post])
 case class Post(time: DateTime, user: String, url: String, guess: Guess)
 case class Guess(land: Int, road: Int, water: Int)
 
-case class FirstGuess(guess: Guess, user: String, url: String, time: DateTime, later: Seq[LateGuess])
+case class FirstGuess(guess: Guess, user: String, url: String, time: DateTime, valid: Boolean, later: Seq[LateGuess])
 case class LateGuess(user: String, url: String, delay: String)
 
 
@@ -28,6 +28,8 @@ object ForumParser {
   private val dtf = DateTimeFormat.forPattern("dd.MM.yy, HH:mm").withZone(DateTimeZone.forID("Europe/Helsinki"))
   private val Yesterday = """Eilen, (\d\d):(\d\d)""".r
   private val Today = """Tänään, (\d\d):(\d\d)""".r
+
+  private val validThreshold = dtf.parseDateTime("20.06.13, 12:00")
 
   private val durationFormatter = new PeriodFormatterBuilder()
     .appendDays().appendSuffix("pv")
@@ -42,7 +44,7 @@ object ForumParser {
   def findGuesses() = {
     findPosts().groupBy(_.guess).map { case (guess, posts) =>
       val firstPost = posts.head
-      FirstGuess(guess, firstPost.user, firstPost.url, firstPost.time,
+      FirstGuess(guess, firstPost.user, firstPost.url, firstPost.time, firstPost.time.isBefore(validThreshold),
         posts.tail.map(p => LateGuess(p.user, p.url, duration(p.time, firstPost.time))))
     }
   }

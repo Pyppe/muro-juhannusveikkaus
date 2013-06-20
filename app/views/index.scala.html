@@ -88,7 +88,12 @@
 
 
           <div class="row">
-            <p id="total">Yhteensä <b>{{guesses.length}}</b> uniikkia veikkausta</p>
+            <p id="total">
+              Yhteensä <b>{{guesses.length}}</b> uniikkia veikkausta
+              <label>
+                <input ng-model="hideLateGuesses" type="checkbox" /> Piilota matti myöhäiset
+              </label>
+            </p>
             <table style="width: 100%;">
               <thead>
               <tr>
@@ -102,19 +107,22 @@
               </tr>
               </thead>
               <tbody>
-              <tr ng-repeat="guess in guesses | orderBy:sort.column:sort.reverse">
+              <tr ng-repeat="guess in guesses | orderBy:sort.column:sort.reverse" ng-hide="hideLateGuesses && !guess.valid">
                 <td>
                   <a href="{{guess.url}}" target="_blank">{{guess.user}}</a>
-                <span ng-show="guess.later.length > 0" data-tooltip class="label"
+                  <span ng-show="guess.later.length > 0" data-tooltip class="label"
                       title="<b>Myöhemmin samaa veikkasivat:</b><br />{{guess.laterTooltip}}"
                       ng-pluralize count="guess.later.length" when="{1: '1 myöhempi veikkaus', other:'{} myöhempää veikkausta'}">
-                 </span>
+                  </span>
                 </td>
                 <td>{{guess.count}}</td>
                 <td>{{guess.guess.land}}</td>
                 <td>{{guess.guess.road}}</td>
                 <td>{{guess.guess.water}}</td>
-                <td><span formatted-time="guess.time"></span></td>
+                <td>
+                  <span ng-hide="guess.valid" data-tooltip title="Myöhässä" class="label alert"><i class="icon-time"></i></span>
+                  <span formatted-time="guess.time"></span>
+                </td>
                 <td>{{guess.diff()}}</td>
               </tr>
               </tbody>
