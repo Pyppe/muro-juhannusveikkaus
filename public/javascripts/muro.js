@@ -42,7 +42,6 @@ muroApp.controller("GuessCtrl", function($scope, $http) {
   var url = "/guesses";
   //var url = '/assets/mock/guesses.json';
 
-
   $http({method: 'GET', url: url}).
       success(function(guesses) {
         $scope.guesses = $.map(guesses, function (guess) {
@@ -75,6 +74,8 @@ muroApp.controller("GuessCtrl", function($scope, $http) {
     reverse: true
   };
 
+  initGuess();
+
   $scope.selectedClass = function(column) {
     var cls = "table-sort"
     if (column == $scope.sort.column) {
@@ -92,6 +93,17 @@ muroApp.controller("GuessCtrl", function($scope, $http) {
       sort.reverse = (column === 'user' || column === 'diff()') ? false : true;
     }
   };
+
+  function initGuess() {
+    var matches = (/^\?(\d+)-(\d+)-(\d+)$/gi).exec(location.search);
+    if (matches && matches.length === 4) {
+      $scope.correctLand = matches[1];
+      $scope.correctRoad = matches[2];
+      $scope.correctWater = matches[3];
+      $scope.sort.column = 'diff()';
+      $scope.sort.reverse = false;
+    }
+  }
 
 });
 
