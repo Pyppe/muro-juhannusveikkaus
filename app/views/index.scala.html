@@ -107,7 +107,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr ng-repeat="guess in guesses | orderBy:sort.column:sort.reverse" ng-hide="hideLateGuesses && !guess.valid">
+              <tr ng-repeat="guess in guesses | orderBy:sort.column:sort.reverse | filterLateGuesses:hideLateGuesses">
                 <td>
                   <a href="{{guess.url}}" target="_blank">{{guess.user}}</a>
                   <span ng-show="guess.later.length > 0" data-tooltip class="label"

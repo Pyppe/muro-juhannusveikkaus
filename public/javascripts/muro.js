@@ -22,10 +22,16 @@ muroApp.directive('formattedTime', function() {
   };
 });
 
-muroApp.filter('lateGuesses', function() {
-  return function(items, $scope) {
-    if ($scope.hideLateGuesses) {
-      return _.filter(items, function(guess) {return guess.valid;});
+muroApp.filter('filterLateGuesses', function() {
+  return function(items, hide) {
+    if (hide) {
+      var filtered = [];
+      angular.forEach(items, function(guess) {
+        if (guess.valid) {
+          filtered.push(guess);
+        }
+      });
+      return filtered;
     }
     return items;
   };
