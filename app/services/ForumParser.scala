@@ -98,20 +98,24 @@ object ForumParser {
     def findMatch(key: String) =
       """%s[a-zäö]* *[-=:]? *(\d+)""".format(key).r.findFirstMatchIn(message).map(_.group(1)).toSeq
 
-    findMatch("[mM]") ++ findMatch("[tT]") ++ findMatch("[vV]") match {
-      case seq: Seq[String] if seq.size == 3 => Some(Guess(seq(0).toInt, seq(1).toInt, seq(2).toInt))
-      case _ =>
-        // Let's catch the couple of odd entries
-        """(\d+)-(\d+)-(\d+)""".r.findFirstMatchIn(message).map { m =>
-          Some(Guess(m.group(1).toInt, m.group(2).toInt, m.group(3).toInt))
-        }.getOrElse {
-          if (message.contains("Tiellä - maalla - vesillä: 5 - 2 -10")) {
-            Some(Guess(2,5,10))
-          } else {
-            Logger.warn(s"Could not determine guess from $message")
-            None
+    if ("""\?(\d+)-(\d+)-(\d+)""".r.findFirstMatchIn(message).isDefined) {
+      None // skip urls
+    } else {
+      findMatch("[mM]") ++ findMatch("[tT]") ++ findMatch("[vV]") match {
+        case seq: Seq[String] if seq.size == 3 => Some(Guess(seq(0).toInt, seq(1).toInt, seq(2).toInt))
+        case _ =>
+          // Let's catch the couple of odd entries
+          """(\d+)-(\d+)-(\d+)""".r.findFirstMatchIn(message).map { m =>
+            Some(Guess(m.group(1).toInt, m.group(2).toInt, m.group(3).toInt))
+          }.getOrElse {
+            if (message.contains("Tiellä - maalla - vesillä: 5 - 2 -10")) {
+              Some(Guess(2,5,10))
+            } else {
+              Logger.warn(s"Could not determine guess from $message")
+              None
+            }
           }
-        }
+      }
     }
   }
 
