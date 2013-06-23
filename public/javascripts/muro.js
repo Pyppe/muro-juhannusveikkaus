@@ -47,6 +47,7 @@ muroApp.controller("GuessCtrl", function($scope, $http) {
       success(function(guesses) {
         $scope.guesses = $.map(guesses, function (guess) {
           guess.count = guess.later.length + 1;
+          guess.guessTotal = guess.guess.land + guess.guess.road + guess.guess.water;
           guess.diff = function() {
             var correct = getCorrectGuess();
             if (correct) {

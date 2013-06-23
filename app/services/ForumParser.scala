@@ -30,6 +30,8 @@ object ForumParser {
   private val Today = """Tänään, (\d\d):(\d\d)""".r
 
   private val validThreshold = dtf.parseDateTime("20.06.13, 12:00")
+  private val threadInstructionsPost = "http://murobbs.plaza.fi/1711131824-post1.html"
+  private def instructionFilter(post: Post) = post.url == "http://murobbs.plaza.fi/1711131824-post1.html"
 
   private val durationFormatter = new PeriodFormatterBuilder()
     .appendDays().appendSuffix("pv")
@@ -41,13 +43,16 @@ object ForumParser {
     
   def findPosts() = findPostsFromUrl(forumUrl, Seq.empty)
 
-  def findGuesses() = {
-    findPosts().groupBy(_.guess).map { case (guess, posts) =>
+  def findGuesses() =
+    findPosts().filterNot(instructionFilter).groupBy(_.guess).map { case (guess, posts) =>
       val firstPost = posts.head
       FirstGuess(guess, firstPost.user, firstPost.url, firstPost.time, firstPost.time.isBefore(validThreshold),
         posts.tail.map(p => LateGuess(p.user, p.url, duration(p.time, firstPost.time))))
     }
-  }
+
+  def currentStatus() =
+    Await.result(WS.url(forumUrl).get.map(parsePage), 10 seconds)
+      .posts.find(instructionFilter).map(_.guess)
   
   private def findPostsFromUrl(url: String, posts: Seq[Post]): Seq[Post] = {
     val page = Await.result(WS.url(url).get.map(parsePage), 10 seconds)

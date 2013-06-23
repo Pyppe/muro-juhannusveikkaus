@@ -18,14 +18,18 @@ object Application extends Controller {
   } + DateTimeSerializer
   
   def index = Action {
-    Ok(views.html.index())
+    /*
+    val currentStatus = Cache.getOrElse("currentStatus", 60*5) {
+      time("Find currentStatus")(ForumParser.currentStatus)
+    }
+    */
+    Ok(views.html.index(None))
   }
 
   def guesses = Action {
     val guesses = Cache.getOrElse("guesses", 60*5) {
       time("Find guesses")(ForumParser.findGuesses)
     }
-
     Ok(toJSON(guesses)).as("application/json")
   }
 

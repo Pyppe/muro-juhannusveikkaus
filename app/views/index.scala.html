@@ -1,3 +1,4 @@
+@(currentStatus: Option[services.Guess])
 <!DOCTYPE html>
 <html ng-app="muroApp">
   <head>
@@ -97,17 +98,20 @@
             <table style="width: 100%;">
               <thead>
               <tr>
+                <th>&nbsp;</th>
                 <th ng-class="selectedClass('user')" ng-click="changeSorting('user')">Käyttäjä <i></i></th>
                 <th ng-class="selectedClass('count')" ng-click="changeSorting('count')">Veikkaajia <i></i></th>
                 <th ng-class="selectedClass('guess.land')" ng-click="changeSorting('guess.land')">Maa <i></i></th>
                 <th ng-class="selectedClass('guess.road')" ng-click="changeSorting('guess.road')">Tie <i></i></th>
                 <th ng-class="selectedClass('guess.water')" ng-click="changeSorting('guess.water')">Vesi <i></i></th>
+                <th ng-class="selectedClass('guessTotal')" ng-click="changeSorting('guessTotal')">Yht. <i></i></th>
                 <th ng-class="selectedClass('time')" ng-click="changeSorting('time')">Veikkausaika <i></i></th>
                 <th ng-class="selectedClass('diff()')" ng-click="changeSorting('diff()')">Tulos <small>(pienempi parempi)</small> <i></i></th>
               </tr>
               </thead>
               <tbody>
               <tr ng-repeat="guess in guesses | orderBy:sort.column:sort.reverse | filterLateGuesses:hideLateGuesses">
+                <td>#{{$index + 1}}</td>
                 <td>
                   <a href="{{guess.url}}" target="_blank">{{guess.user}}</a>
                   <span ng-show="guess.later.length > 0" data-tooltip class="label"
@@ -119,6 +123,7 @@
                 <td>{{guess.guess.land}}</td>
                 <td>{{guess.guess.road}}</td>
                 <td>{{guess.guess.water}}</td>
+                <td>{{guess.guessTotal}}</td>
                 <td>
                   <span ng-hide="guess.valid" data-tooltip title="Myöhässä" class="label alert"><i class="icon-time"></i></span>
                   <span formatted-time="guess.time"></span>
