@@ -32,7 +32,6 @@ object ForumParser {
   private val Today = """Tänään, (\d\d):(\d\d)""".r
 
   private val validThreshold = dtf.parseDateTime("20.06.13, 12:00")
-  private val threadInstructionsPost = "http://murobbs.plaza.fi/1711131824-post1.html"
   private def instructionFilter(post: Post) = post.url == "http://murobbs.plaza.fi/1711131824-post1.html"
 
   private val durationFormatter = new PeriodFormatterBuilder()
@@ -56,9 +55,9 @@ object ForumParser {
     Await.result(WS.url(forumUrl).get.map { response =>
       val doc = Jsoup.parse(response.body)
       try {
-        val message = doc.select("#posts .page").head.select("[id^=post_message_]").head.text
+        val message = doc.select("#posts .page [id^=post_message_]").head.text
         """TILANNE [^*]+\*""".r.findFirstMatchIn(message).flatMap { m =>
-          val statusLine = m.group(0).replace(" *", "").replace("'","").replace("\"","")
+          val statusLine = m.group(0).replace("*", "").replace("'","").replace("\"","").trim
           """M(\d+).*T(\d+).*V(\d+)""".r.findFirstMatchIn(statusLine).map { m =>
             CurrentStatus(statusLine, m.group(1).toInt, m.group(2).toInt, m.group(3).toInt)
           }
