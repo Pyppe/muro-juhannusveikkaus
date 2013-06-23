@@ -1,6 +1,6 @@
-@(currentStatus: Option[services.Guess])
+@(currentStatus: Option[services.CurrentStatus])
 <!DOCTYPE html>
-<html ng-app="muroApp">
+<html ng-app="muroApp" @currentStatus.map { status => ng-init="correctLand=@status.land; correctRoad=@status.road; correctWater=@status.water; statusText='@status.text';"}>
   <head>
     <title>MuroBBS Juhannusveikkaus 2013</title>
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/lib/normalize.css")" />
@@ -45,7 +45,7 @@
         <div ng-show="viewReady">
 
           <div class="row">
-            <div class="small-6">
+            <div class="columns small-6">
               <form class="custom">
                 <fieldset>
                   <legend>Syötä tulokset</legend>
@@ -84,7 +84,11 @@
                 </fieldset>
               </form>
             </div>
-            <div class="small-6">&nbsp;</div>
+            <div class="columns small-6">
+              <span id="status" class="radius label" ng-show="statusText.length > 0">
+                {{statusText}}
+              </span>
+            </div>
           </div>
 
 

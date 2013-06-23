@@ -21,6 +21,8 @@ case class Guess(land: Int, road: Int, water: Int)
 case class FirstGuess(guess: Guess, user: String, url: String, time: DateTime, valid: Boolean, later: Seq[LateGuess])
 case class LateGuess(user: String, url: String, delay: String)
 
+case class CurrentStatus(text: String, land: Int, road: Int, water: Int)
+
 
 object ForumParser {
 
@@ -50,9 +52,21 @@ object ForumParser {
         posts.tail.map(p => LateGuess(p.user, p.url, duration(p.time, firstPost.time))))
     }
 
-  def currentStatus() =
-    Await.result(WS.url(forumUrl).get.map(parsePage), 10 seconds)
-      .posts.find(instructionFilter).map(_.guess)
+  def currentStatus(): Option[CurrentStatus] =
+    Await.result(WS.url(forumUrl).get.map { response =>
+      val doc = Jsoup.parse(response.body)
+      try {
+        val message = doc.select("#posts .page").head.select("[id^=post_message_]").head.text
+        """TILANNE [^*]+\*""".r.findFirstMatchIn(message).flatMap { m =>
+          val statusLine = m.group(0).replace(" *", "").replace("'","").replace("\"","")
+          """M(\d+).*T(\d+).*V(\d+)""".r.findFirstMatchIn(statusLine).map { m =>
+            CurrentStatus(statusLine, m.group(1).toInt, m.group(2).toInt, m.group(3).toInt)
+          }
+        }
+      } catch {
+        case e: Exception => None
+      }
+    }, 10 seconds)
   
   private def findPostsFromUrl(url: String, posts: Seq[Post]): Seq[Post] = {
     val page = Await.result(WS.url(url).get.map(parsePage), 10 seconds)

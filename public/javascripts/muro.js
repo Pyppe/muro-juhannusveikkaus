@@ -73,6 +73,11 @@ muroApp.controller("GuessCtrl", function($scope, $http) {
     column: 'time',
     reverse: true
   };
+  if ($scope.statusText) {
+    $scope.sort.column = 'diff()';
+    $scope.sort.reverse = false;
+  }
+
 
   $scope.changeUrl = function () {
     if (history && $.isFunction(history.replaceState)) {
@@ -123,8 +128,6 @@ muroApp.controller("GuessCtrl", function($scope, $http) {
       $scope.correctLand = matches[1];
       $scope.correctRoad = matches[2];
       $scope.correctWater = matches[3];
-      $scope.sort.column = 'diff()';
-      $scope.sort.reverse = false;
     }
   }
 
