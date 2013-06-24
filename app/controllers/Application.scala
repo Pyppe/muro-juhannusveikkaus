@@ -18,9 +18,12 @@ object Application extends Controller {
   } + DateTimeSerializer
   
   def index = Action {
-    val currentStatus = Cache.getOrElse("currentStatus", 60*5) {
+    /*
+    val currentStatus: Option[services.] = Cache.getOrElse("currentStatus", 60*5) {
       time("Find currentStatus")(ForumParser.currentStatus)
     }
+    */
+    val currentStatus = Some(services.CurrentStatus("LOPPUSALDO MA 24.6 klo 12.51: M3 + T7 + V6 = 16", 3, 7, 6))
     Ok(views.html.index(currentStatus))
   }
 
