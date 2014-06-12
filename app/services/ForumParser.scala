@@ -25,12 +25,14 @@ case class CurrentStatus(text: String, land: Int, road: Int, water: Int)
 
 object ForumParser {
 
-  private val forumUrl = "http://murobbs.plaza.fi/yleista-keskustelua/1014346-juhannusveikkaus-2013-a.html"
+  //private val forumUrl = "http://murobbs.plaza.fi/yleista-keskustelua/1014346-juhannusveikkaus-2013-a.html"
+  private val forumUrl = "http://murobbs.plaza.fi/yleista-keskustelua/1117759-juhannusveikkaus-2014-a.html"
   private val dtf = DateTimeFormat.forPattern("dd.MM.yy, HH:mm").withZone(DateTimeZone.forID("Europe/Helsinki"))
   private val Yesterday = """Eilen, (\d\d):(\d\d)""".r
   private val Today = """Tänään, (\d\d):(\d\d)""".r
 
-  private val validThreshold = dtf.parseDateTime("20.06.13, 12:00")
+  //private val validThreshold = dtf.parseDateTime("20.06.13, 12:00")
+  private val validThreshold = dtf.parseDateTime("23.06.14, 12:00")
   private def instructionFilter(post: Post) = post.url == "http://murobbs.plaza.fi/1711131824-post1.html"
 
   private val durationFormatter = new PeriodFormatterBuilder()

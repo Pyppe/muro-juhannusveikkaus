@@ -11,71 +11,83 @@ h5 {
 }
 
 /* line 12, ../sass/muro.scss */
+#years {
+  float: left;
+  margin: 0;
+}
+/* line 16, ../sass/muro.scss */
+#years .selected a {
+  color: black;
+  font-weight: bold;
+  cursor: default;
+}
+
+/* line 24, ../sass/muro.scss */
 #content {
   width: 62.5em;
   margin: 0 auto;
 }
-/* line 18, ../sass/muro.scss */
+/* line 30, ../sass/muro.scss */
 #content table .table-sort, #content table .table-sort-down, #content table .table-sort-up {
   cursor: pointer;
 }
-/* line 20, ../sass/muro.scss */
+/* line 32, ../sass/muro.scss */
 #content table .table-sort > i, #content table .table-sort-down > i, #content table .table-sort-up > i {
   font-style: normal;
   font-family: 'FontAwesome';
 }
-/* line 27, ../sass/muro.scss */
+/* line 39, ../sass/muro.scss */
 #content table .table-sort > i {
   opacity: 0;
 }
-/* line 30, ../sass/muro.scss */
+/* line 42, ../sass/muro.scss */
 #content table .table-sort:hover > i {
   opacity: 1;
 }
-/* line 35, ../sass/muro.scss */
+/* line 47, ../sass/muro.scss */
 #content table .table-sort > i:before {
   content: "\f0dc";
 }
-/* line 38, ../sass/muro.scss */
+/* line 50, ../sass/muro.scss */
 #content table .table-sort-down > i:before {
   content: "\f0dd";
 }
-/* line 41, ../sass/muro.scss */
+/* line 53, ../sass/muro.scss */
 #content table .table-sort-up > i:before {
   content: "\f0de";
 }
 
-/* line 48, ../sass/muro.scss */
+/* line 60, ../sass/muro.scss */
 #total {
   margin-bottom: 0;
 }
-/* line 50, ../sass/muro.scss */
+/* line 62, ../sass/muro.scss */
 #total b {
   font-size: 150%;
 }
-/* line 54, ../sass/muro.scss */
+/* line 66, ../sass/muro.scss */
 #total label {
   display: inline;
   padding-left: 20px;
 }
 
-/* line 60, ../sass/muro.scss */
+/* line 72, ../sass/muro.scss */
 #status {
   margin-top: 30px;
   margin-left: -10px;
   text-align: right;
 }
-/* line 64, ../sass/muro.scss */
+/* line 76, ../sass/muro.scss */
 #status .ext {
   font-size: 11px;
 }
-/* line 66, ../sass/muro.scss */
+/* line 78, ../sass/muro.scss */
 #status .ext a {
   color: white;
   text-decoration: underline;
 }
 
-/* line 73, ../sass/muro.scss */
+/* line 85, ../sass/muro.scss */
 #copyright {
   padding: 20px;
   position: relative;
@@ -83,20 +95,20 @@ h5 {
   background-color: #111;
   color: white;
 }
-/* line 80, ../sass/muro.scss */
+/* line 92, ../sass/muro.scss */
 #copyright .center {
   text-align: center;
 }
-/* line 83, ../sass/muro.scss */
+/* line 95, ../sass/muro.scss */
 #copyright .right {
   text-align: right;
 }
-/* line 88, ../sass/muro.scss */
+/* line 100, ../sass/muro.scss */
 #copyright a.label:hover, #copyright a.label:focus {
   color: inherit;
 }
 
-/* line 94, ../sass/muro.scss */
+/* line 106, ../sass/muro.scss */
 #loading {
   width: 400px;
   margin: 30px auto;

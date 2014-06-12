@@ -2,7 +2,9 @@
 
 'use strict';
 
-$(document).foundation('tooltips');
+$(function() {
+  $(document).foundation();
+});
 var muroApp = angular.module('muroApp', []);
 var undefined;
 
@@ -13,7 +15,7 @@ muroApp.directive('formattedTime', function() {
     },
     template: '<span title="{{formatted}}" data-tooltip>{{ago}}</span>',
     link: function (scope, el, attrs) {
-      var timeStr = scope.formattedTime
+      var timeStr = scope.formattedTime;
       var t = makeTime(timeStr);
       scope.ago = t.ago;
       scope.formatted = t.formatted;
@@ -38,35 +40,55 @@ muroApp.filter('filterLateGuesses', function() {
   };
 });
 
-muroApp.controller("GuessCtrl", function($scope, $http) {
+muroApp.controller("GuessCtrl", function($scope, $http, $timeout) {
 
-  var url = "/guesses";
-  //var url = '/assets/mock/guesses.json';
+  $scope.years = [2014, 2013];
+  $scope.results = {};
 
-  $http({method: 'GET', url: url}).
-      success(function(guesses) {
-        $scope.guesses = $.map(guesses, function (guess) {
-          guess.count = guess.later.length + 1;
-          guess.guessTotal = guess.guess.land + guess.guess.road + guess.guess.water;
-          guess.diff = function() {
-            var correct = getCorrectGuess();
-            if (correct) {
-              return Math.abs(correct[0] - guess.guess.land) +
-                     Math.abs(correct[1] - guess.guess.road) +
-                     Math.abs(correct[2] - guess.guess.water);
-            }
-            return '';
-          };
-          guess.laterTooltip = $.map(guess.later, function(el) {
-            return '<div>' + el.user + ' <small>(' + el.delay + ' myöhemmin)</small></div>';
-          }).join('');
-          return guess;
+  initGuess();
+  $scope.selectYear = function(year) {
+    $scope.selectedYear = year;
+    //var url = "/guesses";
+    //var url = '/assets/mock/guesses.json';
+    var url = year === 2014 ? '/guesses' : '/assets/data/'+year+'.json';
+    $scope.results = {};
+    if (year === 2013) {
+      $scope.results = {
+        statusText: 'LOPPUSALDO MA 24.6 klo 12.51: M3 + T7 + V6 = 16',
+        url: 'http://murobbs.plaza.fi/yleista-keskustelua/1014346-juhannusveikkaus-2013-a.html#post1711131824',
+        correctLand: 3,
+        correctRoad: 7,
+        correctWater: 6
+      };
+    }
+    $scope.viewReady = false;
+    $http({method: 'GET', url: url}).
+        success(function(guesses) {
+          $scope.guesses = $.map(guesses, function (guess) {
+            guess.count = guess.later.length + 1;
+            guess.guessTotal = guess.guess.land + guess.guess.road + guess.guess.water;
+            guess.diff = function() {
+              var correct = getCorrectGuess();
+              if (correct) {
+                return Math.abs(correct[0] - guess.guess.land) +
+                    Math.abs(correct[1] - guess.guess.road) +
+                    Math.abs(correct[2] - guess.guess.water);
+              }
+              return '';
+            };
+            guess.laterTooltip = $.map(guess.later, function(el) {
+              return '<div>' + el.user + ' <small>(' + el.delay + ' myöhemmin)</small></div>';
+            }).join('');
+            return guess;
+          });
+          $scope.viewReady = true;
+        }).
+        error(function(data, status, headers, config) {
+          alert ('OMG. VIRHE!');
         });
-        $scope.viewReady = true;
-      }).
-      error(function(data, status, headers, config) {
-        alert ('OMG. VIRHE!');
-      });
+  };
+
+  $scope.selectYear($scope.years[0]);
 
 
   $scope.sort = {
@@ -93,16 +115,14 @@ muroApp.controller("GuessCtrl", function($scope, $http) {
   };
 
   function getCorrectGuess() {
-    var correctLand = parseInt($scope.correctLand);
-    var correctRoad = parseInt($scope.correctRoad);
-    var correctWater = parseInt($scope.correctWater);
+    var correctLand = parseInt($scope.results.correctLand);
+    var correctRoad = parseInt($scope.results.correctRoad);
+    var correctWater = parseInt($scope.results.correctWater);
     if (correctLand >= 0 && correctRoad >= 0 && correctWater >= 0) {
       return [correctLand, correctRoad, correctWater];
     }
     return undefined;
   }
-
-  initGuess();
 
   $scope.selectedClass = function(column) {
     var cls = "table-sort"
@@ -125,9 +145,9 @@ muroApp.controller("GuessCtrl", function($scope, $http) {
   function initGuess() {
     var matches = (/^\?(\d+)-(\d+)-(\d+)$/gi).exec(location.search);
     if (matches && matches.length === 4) {
-      $scope.correctLand = matches[1];
-      $scope.correctRoad = matches[2];
-      $scope.correctWater = matches[3];
+      $scope.results.correctLand = matches[1];
+      $scope.results.correctRoad = matches[2];
+      $scope.results.correctWater = matches[3];
     }
   }
 

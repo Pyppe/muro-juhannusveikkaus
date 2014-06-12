@@ -1,36 +1,32 @@
-@(currentStatus: Option[services.CurrentStatus])
 <!DOCTYPE html>
-<html ng-app="muroApp" @currentStatus.map { status => ng-init="correctLand=@status.land; correctRoad=@status.road; correctWater=@status.water; statusText='@status.text';"}>
+<html ng-app="muroApp">
   <head>
     <title>MuroBBS Juhannusveikkaus 2013</title>
-    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/lib/normalize.css")" />
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/lib/foundation.min.css")" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/muro.css")" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Telex" type="text/css" />
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
 
-    @if(play.api.Play.current.mode == play.api.Mode.Dev) {
-      <script src="/assets/javascripts/lib/jquery.js" type="text/javascript"></script>
-      <script src="/assets/javascripts/lib/angular.js" type="text/javascript"></script>
-    } else {
-      <script src="//code.jquery.com/jquery-1.10.1.min.js" type="text/javascript"></script>
-      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js" type="text/javascript"></script>
-    }
-
     <script src="/assets/javascripts/lib/custom.modernizr.js" type="text/javascript"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <!--<script src="/assets/javascripts/lib/foundation.min.js" type="text/javascript"></script>-->
     <script src="/assets/javascripts/lib/foundation.js" type="text/javascript"></script>
     <script src="/assets/javascripts/lib/foundation.tooltips.js" type="text/javascript"></script>
 
     <script src="/assets/javascripts/lib/moment.min.js" type="text/javascript"></script>
     <script src="/assets/javascripts/lib/moment.fi.js" type="text/javascript"></script>
-
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.js" type="text/javascript"></script>
     <script src="/assets/javascripts/muro.js" type="text/javascript"></script>
-
   </head>
     <body>
       <div id="content" ng-controller="GuessCtrl">
-        <h1>MuroBBS Juhannusveikkaus 2013</h1>
+        <h1>MuroBBS Juhannusveikkaus</h1>
+        <ul id="years" class="inline-list">
+          <li ng-repeat="year in years" ng-class="{ selected: selectedYear === year }">
+            <a href="" ng-click="selectYear(year)">{{ year }}</a>
+          </li>
+        </ul>
         <h5 class="subheader">
           Idea
           <i class="icon-quote-left"></i>
@@ -42,7 +38,7 @@
           <i class="icon-quote-right"></i>
         </h5>
 
-        <div ng-show="viewReady">
+        <div ng-show="viewReady" class="clear:both;">
 
           <div class="row">
             <div class="columns small-6">
@@ -58,7 +54,7 @@
                       <span class="prefix">Maa</span>
                     </div>
                     <div class="small-1 columns">
-                      <input type="text" ng-model="correctLand" ng-change="changeUrl()" />
+                      <input type="text" ng-model="results.correctLand" ng-change="changeUrl()" />
                     </div>
 
                     <div class="small-1 columns">&nbsp;</div>
@@ -67,7 +63,7 @@
                       <span class="prefix">Tie</span>
                     </div>
                     <div class="small-1 columns">
-                      <input type="text" ng-model="correctRoad" ng-change="changeUrl()" />
+                      <input type="text" ng-model="results.correctRoad" ng-change="changeUrl()" />
                     </div>
 
                     <div class="small-1 columns">&nbsp;</div>
@@ -76,7 +72,7 @@
                       <span class="prefix">Vesi</span>
                     </div>
                     <div class="small-1 columns">
-                      <input type="text" ng-model="correctWater" ng-change="changeUrl()" />
+                      <input type="text" ng-model="results.correctWater" ng-change="changeUrl()" />
                     </div>
 
                   </div>
@@ -85,11 +81,11 @@
               </form>
             </div>
             <div class="columns small-6">
-              <span id="status" class="radius label" ng-show="statusText.length > 0">
-                <i class="icon-info-sign icon-large"></i> {{statusText}}<br/>
+              <span id="status" class="radius label" ng-show="results.statusText.length > 0">
+                <i class="icon-info-sign icon-large"></i> {{results.statusText}}<br/>
                 <span class="ext">
                   <i class="icon-external-link"></i>
-                  <a href="http://murobbs.plaza.fi/yleista-keskustelua/1014346-juhannusveikkaus-2013-a.html#post1711131824" target="_blank">
+                  <a ng-href="{{results.url}}" target="_blank">
                     ks. tarkemmat tiedot
                   </a>
                 </span>

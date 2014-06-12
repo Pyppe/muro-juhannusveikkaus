@@ -23,8 +23,8 @@ object Application extends Controller {
       time("Find currentStatus")(ForumParser.currentStatus)
     }
     */
-    val currentStatus = Some(services.CurrentStatus("LOPPUSALDO MA 24.6 klo 12.51: M3 + T7 + V6 = 16", 3, 7, 6))
-    Ok(views.html.index(currentStatus))
+    //val currentStatus = Some(services.CurrentStatus("LOPPUSALDO MA 24.6 klo 12.51: M3 + T7 + V6 = 16", 3, 7, 6))
+    Ok(views.html.index())
   }
 
   def guesses = Action {

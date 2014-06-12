@@ -9,6 +9,18 @@ h5 {
   text-align: right;
 }
 
+#years {
+  float: left;
+  margin: 0;
+  .selected {
+    a {
+      color: black;
+      font-weight: bold;
+      cursor: default;
+    }
+  }
+}
+
 #content {
   width: 62.5em;
   margin: 0 auto;
