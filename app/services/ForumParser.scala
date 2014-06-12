@@ -1,18 +1,17 @@
 package services
 
+import play.api.libs.ws._
+import play.api.Play.current
+import play.api.Logger
+
 import org.jsoup.Jsoup
 import org.joda.time._
 import org.joda.time.format.{PeriodFormatterBuilder, DateTimeFormat}
-
-import play.api.libs.ws._
 
 import scala.concurrent.Await
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.collection.JavaConversions._
 import scala.concurrent.duration._
-import play.api.Logger
-import play.api.libs.ws.Response
-import scala.Some
 
 case class Page(nextPage: Option[String], posts: Seq[Post])
 case class Post(time: DateTime, user: String, url: String, guess: Guess)
@@ -75,7 +74,7 @@ object ForumParser {
     }
   }
   
-  private def parsePage(response: Response) = {
+  private def parsePage(response: WSResponse) = {
     val doc = Jsoup.parse(response.body)
     val posts = doc.select("#posts .page").flatMap { post =>
       try {
@@ -102,8 +101,9 @@ object ForumParser {
   }
 
   private def parseTime(d: String) = {
+
     def date(minusDays: Int, hours: String, minutes: String) =
-      new DateTime(new DateMidnight).minusDays(minusDays).withHourOfDay(hours.toInt).withMinuteOfHour(minutes.toInt)
+      DateTime.now.withTimeAtStartOfDay.minusDays(minusDays).withHourOfDay(hours.toInt).withMinuteOfHour(minutes.toInt)
 
     d match {
       case Yesterday(hours, min) => date(1, hours, min)

@@ -1,6 +1,7 @@
 import sbt._
 import Keys._
-import play.Project._
+import play.Play.autoImport._
+import PlayKeys._
 
 object ApplicationBuild extends Build {
 
@@ -9,17 +10,17 @@ object ApplicationBuild extends Build {
 
   val appDependencies = Seq(
     // Add your project dependencies here,
-    jdbc,
-    anorm,
     "org.jsoup"   %  "jsoup"          % "1.7.2",
     "joda-time"   %  "joda-time"      % "2.2",
-    "org.json4s"  %% "json4s-jackson" % "3.2.4",
-    "org.json4s"  %% "json4s-ext"     % "3.2.4"
+    "org.json4s"  %% "json4s-jackson" % "3.2.10",
+    "org.json4s"  %% "json4s-ext"     % "3.2.10"
   )
 
 
-  val main = play.Project(appName, appVersion, appDependencies).settings(
-    // Add your own project settings here      
+  val main = Project(appName, file(".")).enablePlugins(play.PlayScala).settings(
+    version := appVersion,
+    libraryDependencies ++= appDependencies ++ Seq(cache, ws),
+    scalaVersion := "2.11.1"
   )
   
   /*
