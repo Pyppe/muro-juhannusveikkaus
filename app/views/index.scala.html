@@ -21,7 +21,7 @@
   </head>
     <body>
       <div id="content" ng-controller="GuessCtrl">
-        <h1>MuroBBS Juhannusveikkaus</h1>
+        <h1>MuroBBS Juhannusveikkaus {{selectedYear}}</h1>
         <ul id="years" class="inline-list">
           <li ng-repeat="year in years" ng-class="{ selected: selectedYear === year }">
             <a href="" ng-click="selectYear(year)">{{ year }}</a>
