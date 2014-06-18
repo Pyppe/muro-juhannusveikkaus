@@ -45,7 +45,6 @@ muroApp.controller("GuessCtrl", function($scope, $http, $timeout) {
   $scope.years = [2014, 2013];
   $scope.results = {};
 
-  initGuess();
   $scope.selectYear = function(year) {
     $scope.selectedYear = year;
     //var url = "/guesses";
@@ -60,6 +59,8 @@ muroApp.controller("GuessCtrl", function($scope, $http, $timeout) {
         correctRoad: 7,
         correctWater: 6
       };
+    } else {
+      initGuess();
     }
     $scope.viewReady = false;
     $http({method: 'GET', url: url}).
