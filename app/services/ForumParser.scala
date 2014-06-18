@@ -75,7 +75,8 @@ object ForumParser {
       case None => posts ++ page.posts
     }
   }
-  
+
+  private val SkippedPosts = Set("http://murobbs.plaza.fi/1713198286-post1.html")
   private def parsePage(response: WSResponse) = {
     val doc = Jsoup.parse(response.body)
     val posts = doc.select("#posts .page").flatMap { post =>
@@ -86,11 +87,13 @@ object ForumParser {
         }.getOrElse {
           messageEl.text
         }
-        parseGuess(message).map { guess =>
+        parseGuess(message).flatMap { guess =>
           val time = parseTime(post.select(".thead").head.text)
           val user = post.select(".bigusername").head.text
           val postUrl = post.select("[id^=postcount]").head.attr("href")
-          Post(time, user, postUrl, guess)
+          Option(postUrl).filterNot(SkippedPosts).map { postUrl =>
+            Post(time, user, postUrl, guess)
+          }
         }
       } catch {
         case e: Exception =>
@@ -114,23 +117,32 @@ object ForumParser {
     }
   }
 
+  private val manualGuesses = Map(
+    "Ma-Ti-Ve Kolme-Kolme-Kolme" -> Guess(3,3,3),
+    "M:3 5:7 V:13" -> Guess(3,7,13)
+  )
+
   private def parseGuess(message: String): Option[Guess] = {
-    def findMatch(key: String) =
-      """%s[a-zäö]* *[-=:]? *(\d+)""".format(key).r.findFirstMatchIn(message).map(_.group(1)).toSeq
+    def findMatch(key: String): Option[Int] = {
+      val pattern = """%s%s *[-=:]? *(\d+)"""
+      val firstMatch = pattern.format(key, "").r.findFirstMatchIn(message).orElse {
+        pattern.format(key, "[a-zäö]*").r.findFirstMatchIn(message)
+      }
+      firstMatch.map(_.group(1).toInt)
+    }
 
     if ("""\?(\d+)-(\d+)-(\d+)""".r.findFirstMatchIn(message).isDefined) {
       None // skip urls
     } else {
-      findMatch("[mM]") ++ findMatch("[tT]") ++ findMatch("[vV]") match {
-        case seq: Seq[String] if seq.size == 3 => Some(Guess(seq(0).toInt, seq(1).toInt, seq(2).toInt))
+      (findMatch("[mM]"), findMatch("[tT]"), findMatch("[vV]")) match {
+        case (Some(m), Some(t), Some(v)) =>
+          Some(Guess(m, t, v))
         case _ =>
           // Let's catch the couple of odd entries
           """(\d+)-(\d+)-(\d+)""".r.findFirstMatchIn(message).map { m =>
             Some(Guess(m.group(1).toInt, m.group(2).toInt, m.group(3).toInt))
           }.getOrElse {
-            if (message.contains("Tiellä - maalla - vesillä: 5 - 2 -10")) {
-              Some(Guess(2,5,10))
-            } else {
+            manualGuesses.get(message).orElse {
               Logger.warn(s"Could not determine guess from $message")
               None
             }
