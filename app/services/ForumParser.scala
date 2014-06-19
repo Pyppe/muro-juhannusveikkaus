@@ -32,7 +32,7 @@ object ForumParser {
   private val Today = """Tänään, (\d\d):(\d\d)""".r
 
   //private val validThreshold = dtf.parseDateTime("20.06.13, 12:00")
-  private val validThreshold = dtf.parseDateTime("23.06.14, 12:00")
+  private val validThreshold = dtf.parseDateTime("19.06.14, 12:00")
   private def instructionFilter(post: Post) = post.url == "http://murobbs.plaza.fi/1711131824-post1.html"
 
   private val durationFormatter = new PeriodFormatterBuilder()
