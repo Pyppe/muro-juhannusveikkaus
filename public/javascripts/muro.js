@@ -44,6 +44,10 @@ muroApp.controller("GuessCtrl", function($scope, $http, $timeout) {
 
   $scope.years = [2014, 2013];
   $scope.results = {};
+  $scope.sort = {
+    column: 'time',
+    reverse: true
+  };
 
   $scope.selectYear = function(year) {
     $scope.selectedYear = year;
@@ -59,6 +63,7 @@ muroApp.controller("GuessCtrl", function($scope, $http, $timeout) {
         correctRoad: 7,
         correctWater: 6
       };
+      sortByResult();
     } else {
       initGuess();
     }
@@ -91,12 +96,7 @@ muroApp.controller("GuessCtrl", function($scope, $http, $timeout) {
 
   $scope.selectYear($scope.years[0]);
 
-
-  $scope.sort = {
-    column: 'time',
-    reverse: true
-  };
-  if ($scope.statusText) {
+  function sortByResult() {
     $scope.sort.column = 'diff()';
     $scope.sort.reverse = false;
   }
@@ -149,6 +149,7 @@ muroApp.controller("GuessCtrl", function($scope, $http, $timeout) {
       $scope.results.correctLand = matches[1];
       $scope.results.correctRoad = matches[2];
       $scope.results.correctWater = matches[3];
+      sortByResult();
     }
   }
 
