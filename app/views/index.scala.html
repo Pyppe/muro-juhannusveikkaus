@@ -131,8 +131,8 @@
                 <td>{{guess.guess.water}}</td>
                 <td>{{guess.guessTotal}}</td>
                 <td>
-                  <span ng-hide="guess.valid" data-tooltip title="Myöhässä" class="label alert"><i class="icon-time"></i></span>
                   <span formatted-time="guess.time"></span>
+                  <span ng-hide="guess.valid" data-tooltip title="Myöhässä" class="label alert"><i class="icon-time"></i></span>
                 </td>
                 <td>{{guess.diff()}}</td>
               </tr>

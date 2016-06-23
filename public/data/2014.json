@@ -1,0 +1,1057 @@
+[
+  {
+    "guess": {
+      "land": 5,
+      "road": 6,
+      "water": 4
+    },
+    "user": "gramma",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713201220",
+    "time": "2014-05-05T23:43+0300",
+    "valid": true,
+    "later": [
+      {
+        "user": "SundeR",
+        "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713203409",
+        "delay": "13t 43min"
+      }
+    ]
+  },
+  {
+    "guess": {
+      "land": 0,
+      "road": 2,
+      "water": 0
+    },
+    "user": "sinpenis",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713215656",
+    "time": "2014-05-08T14:22+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 7,
+      "road": 8,
+      "water": 13
+    },
+    "user": "Gearheadi",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713216437",
+    "time": "2014-05-08T16:17+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 7,
+      "water": 3
+    },
+    "user": "Aran",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713465603",
+    "time": "2014-06-19T09:07+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 5,
+      "water": 8
+    },
+    "user": "normipÃ¤ivÃ¤",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713201716",
+    "time": "2014-05-06T03:13+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 4,
+      "water": 6
+    },
+    "user": "Juffex",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713446252",
+    "time": "2014-06-16T06:34+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 8,
+      "water": 3
+    },
+    "user": "K4le",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-5#post-1713465878",
+    "time": "2014-06-19T10:33+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 5,
+      "water": 2
+    },
+    "user": "latexii",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713446501",
+    "time": "2014-06-16T08:50+0300",
+    "valid": true,
+    "later": [
+      {
+        "user": "Tom Selleckin kalapuikot",
+        "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-5#post-1713465616",
+        "delay": "3pv 21min"
+      }
+    ]
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 1,
+      "water": 10
+    },
+    "user": "PÃ¤Ã¤siÃ¤istipu",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713200507",
+    "time": "2014-05-05T22:31+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 4,
+      "water": 8
+    },
+    "user": "baliw",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713427074",
+    "time": "2014-06-13T07:15+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 5,
+      "road": 4,
+      "water": 12
+    },
+    "user": "Ormu",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713423556",
+    "time": "2014-06-12T17:52+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 5,
+      "water": 12
+    },
+    "user": "9700 Pro",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713201640",
+    "time": "2014-05-06T01:54+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 6,
+      "water": 6
+    },
+    "user": "john trollsten",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713452334",
+    "time": "2014-06-17T00:09+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 7,
+      "water": 13
+    },
+    "user": "R9600",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713421845",
+    "time": "2014-06-12T13:47+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 5,
+      "water": 7
+    },
+    "user": "BlackWolf",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-5#post-1713467013",
+    "time": "2014-06-19T14:07+0300",
+    "valid": false,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 12,
+      "water": 3
+    },
+    "user": "romppa84",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713457169",
+    "time": "2014-06-17T22:04+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 6,
+      "water": 3
+    },
+    "user": "Comq",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-6#post-1713473433",
+    "time": "2014-06-20T15:52+0300",
+    "valid": false,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 5,
+      "water": 3
+    },
+    "user": "JuoppoSepi",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713446135",
+    "time": "2014-06-16T03:41+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 7,
+      "water": 6
+    },
+    "user": "wIrd",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713204586",
+    "time": "2014-05-06T16:42+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 4,
+      "water": 4
+    },
+    "user": "jokerit18",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713428207",
+    "time": "2014-06-13T12:11+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 1,
+      "road": 3,
+      "water": 1
+    },
+    "user": "Jack Horny",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-7#post-1713494568",
+    "time": "2014-06-24T19:51+0300",
+    "valid": false,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 3,
+      "water": 2367
+    },
+    "user": "Kerhard",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713205167",
+    "time": "2014-05-06T18:11+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 0,
+      "road": 1,
+      "water": 6
+    },
+    "user": "Antwerp",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713408402",
+    "time": "2014-06-10T08:08+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 6,
+      "water": 1
+    },
+    "user": "Cursarion",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-5#post-1713469616",
+    "time": "2014-06-19T21:44+0300",
+    "valid": false,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 2,
+      "water": 5
+    },
+    "user": "Arctic_Fox",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713463043",
+    "time": "2014-06-18T21:04+0300",
+    "valid": true,
+    "later": [
+      {
+        "user": "jkstone",
+        "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-5#post-1713467998",
+        "delay": "20t 15min"
+      }
+    ]
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 4,
+      "water": 8
+    },
+    "user": "poroGOD",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713204437",
+    "time": "2014-05-06T16:16+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 8,
+      "water": 7
+    },
+    "user": "Valentinoh",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713426867",
+    "time": "2014-06-13T03:08+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 5,
+      "water": 4
+    },
+    "user": "DeathIncarnate",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713446869",
+    "time": "2014-06-16T10:30+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 0,
+      "road": 1,
+      "water": 0
+    },
+    "user": "Korppikuningas",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713203778",
+    "time": "2014-05-06T14:29+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 4,
+      "water": 3
+    },
+    "user": "papuwokki",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713198472",
+    "time": "2014-05-05T17:46+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 5,
+      "road": 5,
+      "water": 13
+    },
+    "user": "Kossila",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713462931",
+    "time": "2014-06-18T20:46+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 2,
+      "water": 4
+    },
+    "user": "jakuis",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713460924",
+    "time": "2014-06-18T15:10+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 5,
+      "road": 3,
+      "water": 3
+    },
+    "user": "Ryland",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-5#post-1713465939",
+    "time": "2014-06-19T10:44+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 3,
+      "water": 6
+    },
+    "user": "Grazer",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713446373",
+    "time": "2014-06-16T07:35+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 4,
+      "water": 6
+    },
+    "user": "HenkilÃ¶ X",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713201743",
+    "time": "2014-05-06T03:59+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 3,
+      "water": 2
+    },
+    "user": "Geoff Peterson",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713427107",
+    "time": "2014-06-13T07:29+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 6,
+      "road": 5,
+      "water": 7
+    },
+    "user": "Ogram",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-5#post-1713465924",
+    "time": "2014-06-19T10:53+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 6,
+      "water": 11
+    },
+    "user": "jefreitteri",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713203201",
+    "time": "2014-05-06T12:53+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 1,
+      "road": 4,
+      "water": 5
+    },
+    "user": "Jyrde",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713446291",
+    "time": "2014-06-16T06:54+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 3,
+      "water": 9
+    },
+    "user": "M.P.T",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713463036",
+    "time": "2014-06-18T21:03+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 7,
+      "water": 2
+    },
+    "user": "JwL",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-5#post-1713467638",
+    "time": "2014-06-19T15:59+0300",
+    "valid": false,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 4,
+      "water": 2
+    },
+    "user": "Shred",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-5#post-1713470607",
+    "time": "2014-06-20T00:35+0300",
+    "valid": false,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 5,
+      "road": 11,
+      "water": 9
+    },
+    "user": "Dieselman",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-5#post-1713467168",
+    "time": "2014-06-19T14:37+0300",
+    "valid": false,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 6,
+      "road": 6,
+      "water": 6
+    },
+    "user": "aop",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713198558",
+    "time": "2014-05-05T22:29+0300",
+    "valid": true,
+    "later": [
+      {
+        "user": "Petoz",
+        "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713203387",
+        "delay": "14t 53min"
+      },
+      {
+        "user": "Sohviii",
+        "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713427296",
+        "delay": "38pv 10t 2min"
+      }
+    ]
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 6,
+      "water": 6
+    },
+    "user": "Olorin",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713198541",
+    "time": "2014-05-05T17:53+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 5,
+      "water": 2
+    },
+    "user": "pietro",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713462458",
+    "time": "2014-06-18T19:38+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 5,
+      "road": 10,
+      "water": 4
+    },
+    "user": "kalle921",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713454374",
+    "time": "2014-06-17T14:09+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 3,
+      "water": 3
+    },
+    "user": "luuponen",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713459217",
+    "time": "2014-06-18T10:28+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 2,
+      "water": 0
+    },
+    "user": "akse",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713446486",
+    "time": "2014-06-16T08:44+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 1,
+      "road": 2,
+      "water": 1
+    },
+    "user": "janix",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713465497",
+    "time": "2014-06-19T08:34+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 6,
+      "road": 6,
+      "water": 8
+    },
+    "user": "Marcel Herskovitz",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-5#post-1713467145",
+    "time": "2014-06-19T14:31+0300",
+    "valid": false,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 1,
+      "road": 2,
+      "water": 3
+    },
+    "user": "prophecy_",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-5#post-1713467689",
+    "time": "2014-06-19T16:10+0300",
+    "valid": false,
+    "later": [
+      {
+        "user": "13lack",
+        "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-5#post-1713471972",
+        "delay": "19t 14min"
+      }
+    ]
+  },
+  {
+    "guess": {
+      "land": 1,
+      "road": 0,
+      "water": 2
+    },
+    "user": "ilkka99",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713201829",
+    "time": "2014-05-06T07:19+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 0,
+      "road": 0,
+      "water": 0
+    },
+    "user": "beatme",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713203115",
+    "time": "2014-05-06T12:34+0300",
+    "valid": true,
+    "later": [
+      {
+        "user": "hrnr",
+        "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-6#post-1713474721",
+        "delay": "45pv 8t 48min"
+      }
+    ]
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 6,
+      "water": 8
+    },
+    "user": "DX",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713452079",
+    "time": "2014-06-16T23:24+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 4,
+      "water": 3
+    },
+    "user": "Tuhn",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713446222",
+    "time": "2014-06-16T06:04+0300",
+    "valid": true,
+    "later": [
+      {
+        "user": "JSM",
+        "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713464874",
+        "delay": "2pv 19t 16min"
+      }
+    ]
+  },
+  {
+    "guess": {
+      "land": 13,
+      "road": 24,
+      "water": 0
+    },
+    "user": "_o/ ALTTERI \\o_",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713446459",
+    "time": "2014-06-16T08:31+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 3,
+      "water": 1
+    },
+    "user": "Langly",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713459826",
+    "time": "2014-06-18T12:06+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 5,
+      "water": 3
+    },
+    "user": "nacho",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713213068",
+    "time": "2014-05-07T22:53+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 6,
+      "road": 4,
+      "water": 5
+    },
+    "user": "sranat",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713446183",
+    "time": "2014-06-16T05:01+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 4,
+      "water": 1
+    },
+    "user": "LUSSA",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713460647",
+    "time": "2014-06-18T14:23+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 6,
+      "water": 4
+    },
+    "user": "Hopeapaa",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713452284",
+    "time": "2014-06-16T23:57+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 2,
+      "water": 3
+    },
+    "user": "Artur",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713421266",
+    "time": "2014-06-12T12:05+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 9,
+      "road": 1,
+      "water": 1
+    },
+    "user": "Oestrus Taurus",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-5#post-1713467677",
+    "time": "2014-06-19T16:08+0300",
+    "valid": false,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 5,
+      "road": 3,
+      "water": 7
+    },
+    "user": "Bittis",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713201921",
+    "time": "2014-05-06T08:19+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 2,
+      "water": 1
+    },
+    "user": "shaminy",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713427273",
+    "time": "2014-06-13T08:27+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 7,
+      "water": 2
+    },
+    "user": "atkmies",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713465404",
+    "time": "2014-06-19T07:59+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 5,
+      "water": 7
+    },
+    "user": "Rokkiizz",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713446891",
+    "time": "2014-06-16T10:36+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 2,
+      "water": 1
+    },
+    "user": "Arelon",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713446124",
+    "time": "2014-06-16T03:31+0300",
+    "valid": true,
+    "later": [
+      {
+        "user": "code.666.",
+        "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713459233",
+        "delay": "2pv 7t"
+      }
+    ]
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 3,
+      "water": 6
+    },
+    "user": "AIK",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713446508",
+    "time": "2014-06-16T08:53+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 1,
+      "road": 5,
+      "water": 8
+    },
+    "user": "fly_er",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713421798",
+    "time": "2014-06-12T13:39+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 5,
+      "water": 6
+    },
+    "user": "korvaoo",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713214099",
+    "time": "2014-06-12T13:48+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 4,
+      "water": 4
+    },
+    "user": "VeeraKoo",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713408382",
+    "time": "2014-06-10T07:54+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 7,
+      "water": 6
+    },
+    "user": "TGO_",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713203891",
+    "time": "2014-05-06T14:51+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 5,
+      "road": 4,
+      "water": 7
+    },
+    "user": "ParastaEnnen",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713201744",
+    "time": "2014-05-06T04:02+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 3,
+      "water": 4
+    },
+    "user": "Tupsumato",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713427282",
+    "time": "2014-06-13T08:28+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 8,
+      "water": 3
+    },
+    "user": "Mr.Wizard",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713456257",
+    "time": "2014-06-17T20:09+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 6,
+      "road": 8,
+      "water": 3
+    },
+    "user": "Marwyn",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713454188",
+    "time": "2014-06-17T13:33+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 2,
+      "road": 10,
+      "water": 9
+    },
+    "user": "Kopernikus",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713201741",
+    "time": "2014-05-06T03:51+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 1,
+      "road": 5,
+      "water": 2
+    },
+    "user": "Recycle",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713465342",
+    "time": "2014-06-19T07:30+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 5,
+      "road": 3,
+      "water": 6
+    },
+    "user": "Maaster-",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-4#post-1713457250",
+    "time": "2014-06-17T22:14+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 4,
+      "road": 3,
+      "water": 15
+    },
+    "user": "Charun",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713201216",
+    "time": "2014-05-05T23:43+0300",
+    "valid": true,
+    "later": []
+  },
+  {
+    "guess": {
+      "land": 3,
+      "road": 4,
+      "water": 5
+    },
+    "user": "Red",
+    "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-2#post-1713425052",
+    "time": "2014-06-12T21:30+0300",
+    "valid": true,
+    "later": [
+      {
+        "user": "ZeiTsei",
+        "url": "http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/page-3#post-1713447099",
+        "delay": "3pv 13t 49min"
+      }
+    ]
+  }
+]

@@ -13,7 +13,8 @@ muroApp.directive('formattedTime', function() {
     scope: {
       formattedTime: "="
     },
-    template: '<span title="{{formatted}}" data-tooltip>{{ago}}</span>',
+    //template: '<span title="{{formatted}}" data-tooltip>{{ago}}</span>',
+    template: '<span>{{formatted}}</span>',
     link: function (scope, el, attrs) {
       var timeStr = scope.formattedTime;
       var t = makeTime(timeStr);
@@ -42,7 +43,7 @@ muroApp.filter('filterLateGuesses', function() {
 
 muroApp.controller("GuessCtrl", function($scope, $http, $timeout) {
 
-  $scope.years = [2014, 2013];
+  $scope.years = [2016, 2015, 2014, 2013];
   $scope.results = {};
   $scope.sort = {
     column: 'time',
@@ -53,17 +54,33 @@ muroApp.controller("GuessCtrl", function($scope, $http, $timeout) {
     $scope.selectedYear = year;
     //var url = "/guesses";
     //var url = '/assets/mock/guesses.json';
-    var url = year === 2014 ? '/guesses' : '/assets/data/'+year+'.json';
+    var url = year === 2016 ? '/guesses' : '/assets/data/'+year+'.json';
     $scope.results = {};
     if (year === 2013) {
       $scope.results = {
-        statusText: 'LOPPUSALDO MA 24.6 klo 12.51: M3 + T7 + V6 = 16',
+        statusText: 'LOPPUSALDO MA 24.6 2013 klo 12.51: M3 + T7 + V6 = 16',
         url: 'http://murobbs.plaza.fi/yleista-keskustelua/1014346-juhannusveikkaus-2013-a.html#post1711131824',
         correctLand: 3,
         correctRoad: 7,
         correctWater: 6
       };
       sortByResult();
+    } if (year === 2014) {
+      $scope.results = {
+        statusText: 'LOPPUSALDO MA 23.6 2014 klo 12: M2 + T2 + V1 = 5',
+        url: 'http://murobbs.muropaketti.com/threads/juhannusveikkaus-2014.1117759/#post-1713198286',
+        correctLand: 2,
+        correctRoad: 2,
+        correctWater: 1
+      };
+    } else if (year === 2015) {
+      $scope.results = {
+        statusText: 'LOPPUSALDO MA 22.6.2015 klo 15.03: M5 + T2 + V3 = 10',
+        url: 'http://murobbs.muropaketti.com/threads/juhannusveikkaus-2015.1221647/#post-1715399487',
+        correctLand: 5,
+        correctRoad: 2,
+        correctWater: 3
+      };
     } else {
       initGuess();
     }
@@ -159,7 +176,8 @@ function makeTime(time) {
   var timeMoment = moment(time, "YYYY-MM-DD'T'HH:mmZ");
   return {
     ago: timeMoment.fromNow(),
-    formatted: timeMoment.format("ddd [klo] HH:mm, MMMM Do"),
+    //formatted: timeMoment.format("ddd [klo] HH:mm, MMMM Do"),
+    formatted: timeMoment.format("dd L HH:mm"),
     timestamp: timeMoment.format("X"),
     time: time
   };
